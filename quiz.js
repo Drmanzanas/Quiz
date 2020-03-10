@@ -64,7 +64,6 @@ const ponerPregunta = (objeto) => {
     const oracion = `<p>${titulo}</p>`;
     const opciones = respuestas.map(iterandoRespuestas);
     const opcionesTerminadas = opciones.join('');
-    const $$fieldset = document.createElement('fieldset');
     return `<fieldset>${oracion} ${opcionesTerminadas}</fieldset>`;
 
 }
