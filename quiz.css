@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Lato&display=swap');
+
+:root {
+    /*Colores*/
+    --main-color: #F67E7D;
+    --secondary-color: #C0C999;
+    --terciary-color: #FFB997;
+    --cuart-color: #74546A;
+    --quint-color: #843B62;
+    /*font-family*/
+    --main-font-family: 'Indie Flower', cursive;
+    --second-font-family: 'Lato', sans-serif;
+    /*font-size*/
+    --main-font-size: 27px;
+    --secondary-font-size: 35px;
+    --terciary-font-size: 20px;
+    --font-size-grande: 45px;
+    --font-size-medio: 38px;
+    /*distancias*/
+}
+body {
+    background-color: var(--secondary-color);
+    margin: 0;
+}
+h1 {
+    font-family: var(--main-font-family);
+    text-align: center;
+    font-size: var(--font-size-grande);
+    margin-top: 0;
+    color: var(--cuart-color)
+}
+p {
+    font-family: var(--main-font-family);
+    font-size: var(--secondary-font-size);
+    text-align: center;
+    color: var(--main-color);
+    font-weight: bold;
+    width: 100%;
+}
+
+h4 {
+    font-family: var(--main-font-family);
+    padding: 5px 25px 0;
+    font-size: var(--terciary-font-size);
+    text-align: center;
+}
+
+fieldset {
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--terciary-color);
+    box-shadow: var(--terciary-color) 5px 5px 3px;
+    border-radius: 10%;
+    border: 0.5px var(--terciary-color);
+}
+label {
+    margin: 6% 0;
+    text-align: center;
+    font-size: var(--main-font-size);
+    background-color: var(--cuart-color);
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: var(--second-font-family);
+    cursor: pointer;
+}
+
+label:hover {
+    background-color: var(--main-color);
+    color: var(--cuart-color);
+}
+
+input {
+    display: none;
+    margin: 0;
+}
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.boton {
+    border: 1px solid var(--terciary-color);
+    background-color: var(--quint-color);
+    border-radius: 25px;
+    font-size: var(--terciary-font-size);
+    align-self: center;
+    cursor: pointer;
+}
+.boton:hover {
+    background-color: var(--main-color);
+}
+
+@media (min-width: 768px){
+    fieldset {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    label {
+        width: 45%;
+        font-size: var(--secondary-font-size);
+        -webkit-margin-start: none;
+        -webkit-margin-collapse: unset;
+    }
+    h4 {
+        font-size: var(--font-size-medio);
+    }
+
+    .boton {
+        font-size: var(--secondary-font-size);
+    }
+};
+
+@media (min-width: 1100px) {
+    label {
+        width: 20%;
+    }
+}
