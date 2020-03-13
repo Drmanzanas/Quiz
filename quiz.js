@@ -1,133 +1,187 @@
-const preguntasJuego = [{
+const preguntasJuego = [
+    {
         titulo: '¿Cual es el nombre mas comun del mundo?',
         respuestas: [{
                 label: 'Steve',
                 id: 'steve',
-                name: 'nombres'
+                name: 'nombres',
+                value: 'steve'
             },
             {
                 label: 'Pedro',
                 id: 'pedro',
-                name: 'nombres'
+                name: 'nombres',
+                value: 'pedro'
             },
             {
                 label: 'Mohammed',
                 id: 'mohammed',
-                name: 'nombres'
+                name: 'nombres',
+                value: 'mohammed'
             },
             {
                 label: 'Ali',
                 id: 'ali',
-                name: 'nombres'
+                name: 'nombres',
+                value: 'ali'
             }
-        ]
+        ],
+        responseCorrect: {
+            label: 'Mohammed',
+            id: 'mohammed',
+            name: 'nombres',
+            value: 'mohammed'
+        }
     },
     {
         titulo: '¿Cual es el país que recibe más turismo del mundo?',
         respuestas: [{
                 label: 'España',
                 id: 'españa',
-                name: 'paises'
+                name: 'paises',
+                value: 'españa'
             },
             {
                 label: 'Francia',
                 id: 'francia',
-                name: 'paises'
+                name: 'paises',
+                value: 'francia'
             },
             {
                 label: 'China',
                 id: 'china',
-                name: 'paises'
+                name: 'paises',
+                value: 'china'
             },
             {
                 label: 'Estados Unidos',
-                id: 'estados_unidos',
-                name: 'paises'
+                id: 'estadosUnidos',
+                name: 'paises',
+                value: 'estadosUnidos'
             }
-        ]
+        ],
+        responseCorrect: {
+            label: 'Francia',
+            id: 'francia',
+            name: 'paises',
+            value: 'francia'
+        }
     },
     {
         titulo: '¿Cuantos años tiene el universo?',
         respuestas: [{
                 label: '13.73 Mil millones',
-                id: '13.73_mil_millones',
-                name: 'años'
+                id: '13.73MilMillones',
+                name: 'años',
+                value: '13.73m'
             },
             {
                 label: '14 Mil millones',
                 id: '14_mil_millones',
-                name: 'años'
+                name: 'años',
+                value: '14m'
             },
             {
                 label: '73.13 Mil millones',
-                id: '73_13_mil_millones',
-                name: 'años'
+                id: '73.13MilMillones',
+                name: 'años',
+                value: '73.13m'
             },
             {
                 label: '3.5 Mil millones',
-                id: '3.5_Mil_millones',
-                name: 'años'
+                id: '3.5MilMillones',
+                name: 'años',
+                value: '3.5m'
             }
-        ]
+        ],
+        responseCorrect: {
+            label: '73.13 Mil millones',
+            id: '73.13MilMillones',
+            name: 'años',
+            value: '73.13m'
+        }
     },
     {
         titulo: '¿Cual es el animal que mas muertes humanas provoca al año?',
         respuestas: [{
                 label: 'Mosquito',
                 id: 'Mosquito',
-                name: 'animales'
+                name: 'animales',
+                value: 'mosquito'
             },
             {
                 label: 'Serpiente',
                 id: 'Serpiente',
-                name: 'animales'
+                name: 'animales',
+                value: 'serpiente'
             },
             {
                 label: 'Tiburon',
                 id: 'Tiburon',
-                name: 'animales'
+                name: 'animales',
+                value: 'tiburon'
             },
             {
                 label: 'Medusa',
                 id: 'Medusa',
-                name: 'animales'
+                name: 'animales',
+                value: 'medusa'
             }
-        ]
+        ],
+        responseCorrect: {
+            label: 'Mosquito',
+            id: 'Mosquito',
+            name: 'animales',
+            value: 'mosquito'
+        }
     },
     {
         titulo: '¿Cual es la pelicula mas vista de la historia?',
         respuestas: [{
                 label: 'Avatar',
                 id: 'Avatar',
-                name: 'peliculas'
+                name: 'peliculas',
+                value: 'avatar'
             },
             {
                 label: 'Los Vengadores',
-                id: 'Los Vengadores',
-                name: 'peliculas'
+                id: 'losVengadores',
+                name: 'peliculas',
+                value: 'losVengadores'
             },
             {
                 label: 'Titanic',
                 id: 'Titanic',
-                name: 'peliculas'
+                name: 'peliculas',
+                value: 'titanic'
             },
             {
                 label: 'Star Wars',
-                id: 'Star Wars',
-                name: 'peliculas'
+                id: 'starWars',
+                name: 'peliculas',
+                value: 'starWars'
             }
-        ]
+        ],
+        responseCorrect: {
+            label: 'Avatar',
+            id: 'Avatar',
+            name: 'peliculas',
+            value: 'avatar'
+        }
     }
 ]
 
 const iterandoRespuestas = ({
     label,
     id,
-    name
-}) => `<section>
-        <input type="radio" id="${id}" name="${name}" value="${id}">
+    name,
+    value
+}) => `
+    <section>
+        <input type="radio" id="${id}" name="${name}" value="${value}">
         <label for="${id}">${label}</label>
-    </section>`
+    </section>
+`
 
 
 const ponerPregunta = ({
@@ -144,12 +198,16 @@ const $boton = `<footer><button class="boton">Terminar</button></footer>`;
 
 const enviarValores = (evento) => {
     evento.preventDefault()
-    console.log($form.elements.nombres.value)
-    console.log($form.elements.paises.value)
-    console.log($form.elements.años.value)
-    console.log($form.elements.animales.value)
-    console.log($form.elements.peliculas.value)
-}
+    const correctoValue = preguntasJuego.map(objeto => objeto.responseCorrect.value);
+    const correctoName = preguntasJuego.map(objeto =>objeto.responseCorrect.name);
+    const formulario = $form.elements;
+    
+    console.log(formulario.nombres.value)
+    console.log(formulario.paises.value)
+    console.log(formulario.años.value)
+    console.log(formulario.animales.value)
+    console.log(formulario.peliculas.value)
+};
 
 
 const pregunta = preguntasJuego.map(ponerPregunta).join('');
