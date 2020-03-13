@@ -201,12 +201,15 @@ const enviarValores = (evento) => {
     const correctoValue = preguntasJuego.map(objeto => objeto.responseCorrect.value);
     const correctoName = preguntasJuego.map(objeto =>objeto.responseCorrect.name);
     const formulario = $form.elements;
-    
-    console.log(formulario.nombres.value)
+    console.log(correctoName[0], correctoValue[0])
+
+    const valores = correctoName.map(name => formulario[name].value)
+
+    console.log(formulario[correctoName[0]].value)
     console.log(formulario.paises.value)
     console.log(formulario.años.value)
     console.log(formulario.animales.value)
-    console.log(formulario.peliculas.value)
+    console.log(formulario[correctoName[4]].value)
 };
 
 
