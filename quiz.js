@@ -204,11 +204,11 @@ const enviarValores = (evento) => {
     const formulario = $form.elements;
     const valores = correctoName.map(name => formulario[name].value)
     
-    const quiz = valores.map(valer => {
-        let varte = correctoValue.map(valor => valor == valer ? valor : "fail")
-        console.log(varte)
-    })
-    return quiz
+    if(valores.toString() == correctoValue.toString()){
+        alert("Muy bien has acertado todas las preguntas")
+    } else {
+        alert("Perdiste, necesitas estudiar mas")
+    };   
 };
 
 
