@@ -198,18 +198,17 @@ const $boton = `<footer><button class="boton">Terminar</button></footer>`;
 
 const enviarValores = (evento) => {
     evento.preventDefault()
+    
     const correctoValue = preguntasJuego.map(objeto => objeto.responseCorrect.value);
     const correctoName = preguntasJuego.map(objeto =>objeto.responseCorrect.name);
     const formulario = $form.elements;
-    console.log(correctoName[0], correctoValue[0])
-
     const valores = correctoName.map(name => formulario[name].value)
-
-    console.log(formulario[correctoName[0]].value)
-    console.log(formulario.paises.value)
-    console.log(formulario.años.value)
-    console.log(formulario.animales.value)
-    console.log(formulario[correctoName[4]].value)
+    
+    const quiz = valores.map(valer => {
+        let varte = correctoValue.map(valor => valor == valer ? valor : "fail")
+        console.log(varte)
+    })
+    return quiz
 };
 
 
