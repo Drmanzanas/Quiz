@@ -102,7 +102,7 @@ const preguntasJuego = [
         }
     },
     {
-        titulo: '¿Cual es el animal que mas muertes humanas provoca al año?',
+        titulo: '¿Que animal mata mas humanos al año?',
         respuestas: [{
                 label: 'Mosquito',
                 id: 'Mosquito',
@@ -188,7 +188,7 @@ const ponerPregunta = ({
     titulo,
     respuestas
 }) => {
-    const oracion = `<p>${titulo}</p>`;
+    const oracion = `<legend>${titulo}</legend>`;
     const opciones = respuestas.map(iterandoRespuestas).join('');
     return `<fieldset>${oracion} ${opciones}</fieldset>`;
 };
@@ -197,22 +197,37 @@ const ponerPregunta = ({
 const $boton = `<footer><button class="boton">Terminar</button></footer>`;
 
 const enviarValores = (evento) => {
-    evento.preventDefault()
+    evento.preventDefault();
     
     const correctoValue = preguntasJuego.map(objeto => objeto.responseCorrect.value);
     const correctoName = preguntasJuego.map(objeto =>objeto.responseCorrect.name);
     const formulario = $form.elements;
-    const valores = correctoName.map(name => formulario[name].value)
+    const valores = correctoName.map(name => formulario[name].value);
     
     if(valores.toString() == correctoValue.toString()){
         alert("Muy bien has acertado todas las preguntas")
     } else {
-        alert("Perdiste, necesitas estudiar mas")
-    };   
+        alert(`OHH, Has perdido. Mira tus respuestas:
+
+            Seleccionadas   -   Correctas
+
+            ${valores[0]}   -   ${correctoValue[0]}
+
+            ${valores[1]}   -   ${correctoValue[1]}
+
+            ${valores[2]}   -   ${correctoValue[2]}
+
+            ${valores[3]}   -   ${correctoValue[3]}
+
+            ${valores[4]}   -   ${correctoValue[4]} `)
+    };
+       
 };
 
 
+
 const pregunta = preguntasJuego.map(ponerPregunta).join('');
+const completo = `<div>${pregunta}</div>`;
 const $form = document.getElementsByTagName('form')[0];
 $form.innerHTML = pregunta + $boton;
 $form.addEventListener('submit', enviarValores);

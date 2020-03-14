@@ -41,13 +41,14 @@ h1 {
     color: var(--cuart-color)
 }
 
-p {
+legend {
     font-family: var(--main-font-family);
     font-size: var(--secondary-font-size);
     text-align: center;
     color: var(--main-color);
     font-weight: bold;
     width: 100%;
+    padding-top: 50px;
 }
 
 h4 {
@@ -56,7 +57,10 @@ h4 {
     font-size: var(--terciary-font-size);
     text-align: center;
 }
-
+form {
+    overflow: scroll;
+    height: 100vh;
+}
 
 fieldset {
     margin-bottom: 70px;
@@ -65,9 +69,9 @@ fieldset {
     height: 90vh;
     background-color: var(--terciary-color);
     box-shadow: var(--terciary-color) 5px 5px 3px;
-    border-radius: 10%;
+    border-radius: 4%;
     border: 0.5px var(--terciary-color);
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 section {
@@ -76,7 +80,7 @@ section {
 }
 
 label {
-    margin: 6%;
+    margin: 4%;
     text-align: center;
     font-size: var(--main-font-size);
     background-color: var(--cuart-color);
@@ -100,6 +104,8 @@ input {
 input:checked ~ label {
     background-color: var(--secondary-color);
 }
+
+
 
 
 footer {
