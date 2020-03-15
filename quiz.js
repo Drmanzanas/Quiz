@@ -181,8 +181,7 @@ const iterandoRespuestas = ({
         <input type="radio" id="${id}" name="${name}" value="${value}">
         <label for="${id}">${label}</label>
     </section>
-`
-
+`;
 
 const ponerPregunta = ({
     titulo,
@@ -193,8 +192,6 @@ const ponerPregunta = ({
     return `<fieldset>${oracion} ${opciones}</fieldset>`;
 };
 
-
-const $boton = `<footer><button class="boton">Terminar</button></footer>`;
 
 const enviarValores = (evento) => {
     evento.preventDefault();
@@ -208,26 +205,52 @@ const enviarValores = (evento) => {
         alert("Muy bien has acertado todas las preguntas")
     } else {
         alert(`OHH, Has perdido. Mira tus respuestas:
-
-            Seleccionadas   -   Correctas
-
-            ${valores[0]}   -   ${correctoValue[0]}
-
-            ${valores[1]}   -   ${correctoValue[1]}
-
-            ${valores[2]}   -   ${correctoValue[2]}
-
-            ${valores[3]}   -   ${correctoValue[3]}
-
-            ${valores[4]}   -   ${correctoValue[4]} `)
+        
+        Seleccionadas   -   Correctas
+        
+        ${valores[0]}   -   ${correctoValue[0]}
+        
+        ${valores[1]}   -   ${correctoValue[1]}
+        
+        ${valores[2]}   -   ${correctoValue[2]}
+        
+        ${valores[3]}   -   ${correctoValue[3]}
+        
+        ${valores[4]}   -   ${correctoValue[4]} `)
     };
-       
+    const nombresElegido = document.querySelector('input[name="nombres"]:checked ~ label');
+    const nombresCorrecto = document.querySelector('input[id="mohammed"] ~label');
+    const paisesElegido = document.querySelector('input[name="paises"]:checked ~ label');
+    const paisesCorrecto = document.querySelector('input[id="francia"] ~label');
+    const añosElegido = document.querySelector('input[name="años"]:checked ~ label');
+    const añosCorrecto = document.querySelector('input[id="73.13MilMillones"] ~label');
+    const animalesElegido = document.querySelector('input[name="animales"]:checked ~ label');
+    const animalesCorrecto = document.querySelector('input[id="Mosquito"] ~ label');
+    const peliculasElegido = document.querySelector('input[name="peliculas"]:checked ~ label');
+    const peliculasCorrecto = document.querySelector('input[id="Avatar"] ~label');
+
+    if(valores[0].toString() !== correctoValue[0].toString){
+         nombresElegido.style.color = '#ED6B86',  nombresCorrecto.style.color = '#52B788';
+    };
+    if(valores[1].toString() !== correctoValue[1].toString){
+        paisesElegido.style.color = '#ED6B86',  paisesCorrecto.style.color = '#52B788';
+    };
+    if(valores[2].toString() !== correctoValue[2].toString){
+        añosElegido.style.color = '#ED6B86',  añosCorrecto.style.color = '#52B788';
+    };
+    if(valores[3].toString() !== correctoValue[3].toString){
+        animalesElegido.style.color = '#ED6B86',  animalesCorrecto.style.color = '#52B788';
+    };
+    if(valores[4].toString() !== correctoValue[4].toString){
+        peliculasElegido.style.color = '#ED6B86',  peliculasCorrecto.style.color = '#52B788';
+    }; 
 };
-
-
+    
+const $boton = `<footer><button class="boton">Terminar</button></footer>`;
 
 const pregunta = preguntasJuego.map(ponerPregunta).join('');
 const completo = `<div>${pregunta}</div>`;
 const $form = document.getElementsByTagName('form')[0];
 $form.innerHTML = pregunta + $boton;
 $form.addEventListener('submit', enviarValores);
+
