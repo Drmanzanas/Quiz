@@ -71,7 +71,10 @@ fieldset {
     border-radius: 4%;
     border: 0.5px var(--terciary-color);
     justify-content: space-between;
+    position: relative;
+    transition: top 2s linear;
 }
+
 
 section {
     display: flex;
@@ -100,11 +103,13 @@ input {
     display: none;
     margin: 0;
 }
-
 input:checked ~ label {
     background-color: var(--secondary-color);
 }
 
+legend {
+    font-size: x-large;
+}
 footer {
     display: flex;
     flex-direction: column;
@@ -149,5 +154,8 @@ footer {
 
     .boton {
         font-size: var(--secondary-font-size);
+    }
+    legend {
+        font-size: xx-large;
     }
 };
